@@ -1,0 +1,505 @@
+/* ==========================================
+   CONFIGURAÇÕES GERAIS E VARIÁVEIS (PALETA)
+   ========================================== */
+:root {
+    --cor-principal: #1b5e20;   /* Verde Escuro Agro */
+    --cor-secundaria: #81c784;  /* Verde Claro Sustentável */
+    --cor-destaque: #2e7d32;    /* Verde Vibrante para botões */
+    --cor-fundo: #f4f9f4;       /* Fundo claro levemente esverdeado */
+    --cor-card: #ffffff;        /* Branco para os blocos */
+    --cor-texto: #2c3e50;       /* Azul escuro acinzentado para legibilidade */
+    --cor-texto-claro: #ffffff;
+    --fonte: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte);
+    scroll-behavior: smooth; /* Efeito de scroll suave ao clicar no menu */
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    overflow-x: hidden;
+}
+
+/* Limitador de largura para centralizar o conteúdo */
+.interface {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* Títulos de Seções padrão */
+.titulo-secao {
+    text-align: center;
+    margin: 60px 0 30px 0;
+}
+
+.titulo-secao h2 {
+    font-size: 2.2rem;
+    color: var(--cor-principal);
+    margin-bottom: 10px;
+}
+
+.titulo-secao p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* ==========================================
+   CABEÇALHO E MENU
+   ========================================== */
+header {
+    background-color: var(--cor-principal);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    color: var(--cor-texto-claro);
+    font-size: 1.8rem;
+}
+
+.logo h2 span {
+    color: var(--cor-secundaria);
+}
+
+.menu-desktop ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.menu-desktop ul li a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.menu-desktop ul li a:hover {
+    color: var(--cor-secundaria);
+}
+
+/* Menu Mobile (Hambúrguer escondido no PC) */
+.btn-menu-mob {
+    color: var(--cor-texto-claro);
+    font-size: 1.6rem;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--cor-principal);
+    z-index: 1000;
+    padding: 80px 40px;
+    transition: 0.5s;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+}
+
+.menu-mobile.abrir {
+    right: 0;
+}
+
+.menu-mobile .btn-fechar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--cor-texto-claro);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.menu-mobile ul {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    list-style: none;
+}
+
+.menu-mobile ul li a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+/* ==========================================
+   BANNER PRINCIPAL
+   ========================================== */
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://picsum.photos/1920/1080?agriculture') no-repeat center center/cover;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    color: var(--cor-texto-claro);
+    text-align: center;
+}
+
+.banner-conteudo {
+    width: 100%;
+}
+
+.banner-conteudo h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.banner-conteudo h1 span {
+    color: var(--cor-secundaria);
+}
+
+.banner-conteudo p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+}
+
+.btn-conhecer {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn-conhecer:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   SEÇÃO 1: INTRODUÇÃO
+   ========================================== */
+.intro-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.intro-texto {
+    flex: 2;
+}
+
+.intro-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.intro-card {
+    flex: 1;
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-claro);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.intro-card i {
+    font-size: 3rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 15px;
+}
+
+.intro-card h3 {
+    margin-bottom: 10px;
+}
+
+/* ==========================================
+   SEÇÃO 2: SUSTENTABILIDADE (CARDS)
+   ========================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: var(--cor-card);
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-bottom: 5px solid transparent;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-bottom-color: var(--cor-destaque);
+}
+
+.card i {
+    font-size: 2.5rem;
+    color: var(--cor-destaque);
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+    color: var(--cor-principal);
+}
+
+.card p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   SEÇÃO 3: TECNOLOGIA (EXPANSÍVEIS)
+   ========================================== */
+.tech-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tech-item {
+    background-color: var(--cor-card);
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tech-visivel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-left: 5px solid var(--cor-destaque);
+}
+
+.tech-visivel h3 {
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+}
+
+.tech-visivel i {
+    color: var(--cor-destaque);
+}
+
+.tech-visivel .seta {
+    transition: 0.3s;
+}
+
+.tech-oculto {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-out;
+    background-color: #fafafa;
+}
+
+.tech-oculto p {
+    padding: 20px 0;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Classe dinâmica injetada por JS */
+.tech-item.ativo .seta {
+    transform: rotate(180deg);
+}
+
+.tech-item.ativo .tech-oculto {
+    max-height: 200px; /* Expande suavemente */
+}
+
+/* ==========================================
+   SEÇÃO 4: IMPACTOS POSITIVOS
+   ========================================== */
+.impactos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.impacto-box {
+    background-color: #e8f5e9;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid var(--cor-principal);
+}
+
+.impacto-box h4 {
+    color: var(--cor-principal);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.impacto-box p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ==========================================
+   FUNCIONALIDADE: QUIZ SCRIPTADO
+   ========================================== */
+.quiz-secao {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    margin: 60px 0;
+}
+
+.quiz-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.quiz-card h3 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--cor-principal);
+}
+
+.alternativas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-opcao {
+    background-color: var(--cor-fundo);
+    border: 2px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-opcao:hover {
+    background-color: #e8f5e9;
+    border-color: var(--cor-secundaria);
+}
+
+.oculto {
+    display: none !important;
+}
+
+.btn-reiniciar {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 12px 25px;
+    background-color: var(--cor-principal);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   SEÇÃO 5: CONCLUSÃO
+   ========================================== */
+.conclusao-banner {
+    background: linear-gradient(rgba(27, 94, 32, 0.9), rgba(46, 125, 50, 0.8)), url('https://picsum.photos/1200/400?nature') no-repeat center center/cover;
+    padding: 60px 40px;
+    border-radius: 15px;
+    color: var(--cor-texto-claro);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.conclusao-banner h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.conclusao-banner p {
+    font-style: italic;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   RODAPÉ (FOOTER)
+   ========================================== */
+footer {
+    background-color: #111;
+    color: #aaa;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.redes-sociais i {
+    font-size: 1.4rem;
+    color: #fff;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.redes-sociais i:hover {
+    color: var(--cor-secundaria);
+}
+
+/* ==========================================
+   RESPONSIVIDADE (MOBILE / TABLET)
+   ========================================== */
+@media (max-width: 768px) {
+    .menu-desktop {
+        display: none;
+    }
+
+    .btn-menu-mob {
+        display: block;
+    }
+
+    .banner-conteudo h1 {
+        font-size: 2.3rem;
+    }
+
+    .banner-conteudo p {
+        font-size: 1rem;
+    }
+
+    .intro-grid {
+        flex-direction: column;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

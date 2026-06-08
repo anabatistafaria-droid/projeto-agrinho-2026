@@ -2,9 +2,9 @@
    CONFIGURAÇÕES GERAIS E VARIÁVEIS (PALETA)
    ========================================== */
 :root {
-    --cor-principal: #1b5e20;   /* Verde Escuro Agro */
-    --cor-secundaria: #81c784;  /* Verde Claro Sustentável */
-    --cor-destaque: #2e7d32;    /* Verde Vibrante para botões */
+    --cor-principal: #4413a0;   /* Verde Escuro Agro */
+    --cor-secundaria: #8182c7;  /* Verde Claro Sustentável */
+    --cor-destaque: #2e3a7d;    /* Verde Vibrante para botões */
     --cor-fundo: #f4f9f4;       /* Fundo claro levemente esverdeado */
     --cor-card: #ffffff;        /* Branco para os blocos */
     --cor-texto: #2c3e50;       /* Azul escuro acinzentado para legibilidade */

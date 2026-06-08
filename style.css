@@ -405,4 +405,26 @@ body {
     .menu-toggle.active .bar:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
+}/* ==========================================
+   ESTILIZAÇÃO DAS IMAGENS DOS CARDS
+   ========================================== */
+.card-img-container {
+    width: 100%;
+    height: 180px; /* Define uma altura padrão para todas as imagens */
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 242, 254, 0.3); /* Linha fina neon ao redor da foto */
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a foto se adaptar sem distorcer ou esticar */
+    transition: transform 0.5s ease; /* Efeito de animação ao passar o mouse */
+}
+
+/* Efeito futurista: a imagem aumenta levemente de tamanho quando passamos o mouse no card */
+.card-tech:hover .card-img {
+    transform: scale(1.1);
 }

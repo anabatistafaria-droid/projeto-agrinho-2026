@@ -1,505 +1,408 @@
 /* ==========================================
-   CONFIGURAÇÕES GERAIS E VARIÁVEIS (PALETA)
+   PALETA DE CORES FUTURISTA (VERDE-ÁGUA) & CONFIGURAÇÕES
    ========================================== */
 :root {
-    --cor-principal: #4413a0;   /* Verde Escuro Agro */
-    --cor-secundaria: #8182c7;  /* Verde Claro Sustentável */
-    --cor-destaque: #2e3a7d;    /* Verde Vibrante para botões */
-    --cor-fundo: #f4f9f4;       /* Fundo claro levemente esverdeado */
-    --cor-card: #ffffff;        /* Branco para os blocos */
-    --cor-texto: #2c3e50;       /* Azul escuro acinzentado para legibilidade */
-    --cor-texto-claro: #ffffff;
-    --fonte: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --cor-principal: #00f2fe;     /* Verde-água neon futurista */
+    --cor-secundaria: #4facfe;    /* Azul elétrico para degradê */
+    --cor-fundo: #0a192f;         /* Fundo escuro tecnológico espacial */
+    --cor-fundo-card: #112240;    /* Fundo dos cards contrastante */
+    --cor-texto: #cbd5e1;         /* Texto claro acinzentado de fácil leitura */
+    --cor-texto-destaque: #ffffff;/* Texto totalmente branco para títulos */
+    --cor-botao: #00f2fe;         /* Botão combinando com a cor principal */
+    --borda-glow: rgba(0, 242, 254, 0.2);
 }
 
+/* Reset básico de tags */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--fonte);
-    scroll-behavior: smooth; /* Efeito de scroll suave ao clicar no menu */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
-    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* Limitador de largura para centralizar o conteúdo */
-.interface {
+.container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 4%;
+    padding: 20px;
 }
 
-/* Títulos de Seções padrão */
-.titulo-secao {
+/* Títulos de Seção */
+.section {
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--borda-glow);
+}
+
+.section-title {
     text-align: center;
-    margin: 60px 0 30px 0;
+    font-size: 2.5rem;
+    color: var(--cor-texto-destaque);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.titulo-secao h2 {
-    font-size: 2.2rem;
-    color: var(--cor-principal);
-    margin-bottom: 10px;
+.text-gradient {
+    background: linear-gradient(45deg, var(--cor-principal), var(--cor-secundaria));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.titulo-secao p {
-    font-size: 1.1rem;
-    color: #666;
-}
+.text-center { text-align: center; }
+.bg-alt { background-color: rgba(17, 34, 64, 0.5); border-radius: 12px; }
 
 /* ==========================================
-   CABEÇALHO E MENU
+   HEADER & MENU RESPONSIVO
    ========================================== */
-header {
-    background-color: var(--cor-principal);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.header-container {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo h2 {
-    color: var(--cor-texto-claro);
-    font-size: 1.8rem;
-}
-
-.logo h2 span {
-    color: var(--cor-secundaria);
-}
-
-.menu-desktop ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-}
-
-.menu-desktop ul li a {
-    color: var(--cor-texto-claro);
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.menu-desktop ul li a:hover {
-    color: var(--cor-secundaria);
-}
-
-/* Menu Mobile (Hambúrguer escondido no PC) */
-.btn-menu-mob {
-    color: var(--cor-texto-claro);
-    font-size: 1.6rem;
-    cursor: pointer;
-    display: none;
-}
-
-.menu-mobile {
-    position: fixed;
+    padding: 20px 5%;
+    background-color: rgba(10, 25, 47, 0.95);
+    position: sticky;
     top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100vh;
-    background-color: var(--cor-principal);
     z-index: 1000;
-    padding: 80px 40px;
-    transition: 0.5s;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    border-bottom: 2px solid var(--cor-principal);
+    box-shadow: 0 4px 20px rgba(0, 242, 254, 0.15);
 }
 
-.menu-mobile.abrir {
-    right: 0;
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cor-texto-destaque);
+    text-decoration: none;
 }
 
-.menu-mobile .btn-fechar {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: var(--cor-texto-claro);
-    font-size: 2rem;
+.logo span {
+    color: var(--cor-principal);
+}
+
+.navbar a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--cor-principal);
+    text-shadow: 0 0 8px var(--cor-principal);
+}
+
+/* Botão do Menu Hambúrguer (Escondido no Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
     cursor: pointer;
 }
 
-.menu-mobile ul {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    list-style: none;
-}
-
-.menu-mobile ul li a {
-    color: var(--cor-texto-claro);
-    text-decoration: none;
-    font-size: 1.3rem;
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--cor-principal);
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 /* ==========================================
-   BANNER PRINCIPAL
+   BANNER PRINCIPAL (HERO)
    ========================================== */
-.banner {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://picsum.photos/1920/1080?agriculture') no-repeat center center/cover;
-    height: 75vh;
+.hero {
+    height: 70vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    color: var(--cor-texto-claro);
     text-align: center;
+    background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.9)), 
+                url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+    padding: 20px;
+    border-bottom: 2px solid var(--cor-principal);
 }
 
-.banner-conteudo {
-    width: 100%;
-}
-
-.banner-conteudo h1 {
+.hero-content h1 {
     font-size: 3.5rem;
+    color: var(--cor-texto-destaque);
     margin-bottom: 20px;
 }
 
-.banner-conteudo h1 span {
-    color: var(--cor-secundaria);
-}
-
-.banner-conteudo p {
+.hero-content p {
     font-size: 1.3rem;
     max-width: 700px;
     margin: 0 auto 30px auto;
-    line-height: 1.6;
 }
 
-.btn-conhecer {
+/* Botões */
+.btn {
     display: inline-block;
-    padding: 14px 35px;
-    background-color: var(--cor-destaque);
-    color: var(--cor-texto-claro);
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.btn-conhecer:hover {
-    background-color: var(--cor-secundaria);
+    padding: 12px 30px;
+    background: transparent;
     color: var(--cor-principal);
-    transform: translateY(-3px);
-}
-
-/* ==========================================
-   SEÇÃO 1: INTRODUÇÃO
-   ========================================== */
-.intro-grid {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.intro-texto {
-    flex: 2;
-}
-
-.intro-texto p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 15px;
-}
-
-.intro-card {
-    flex: 1;
-    background-color: var(--cor-principal);
-    color: var(--cor-texto-claro);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.intro-card i {
-    font-size: 3rem;
-    color: var(--cor-secundaria);
-    margin-bottom: 15px;
-}
-
-.intro-card h3 {
-    margin-bottom: 10px;
-}
-
-/* ==========================================
-   SEÇÃO 2: SUSTENTABILIDADE (CARDS)
-   ========================================== */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background-color: var(--cor-card);
-    padding: 35px 25px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border-bottom: 5px solid transparent;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    border-bottom-color: var(--cor-destaque);
-}
-
-.card i {
-    font-size: 2.5rem;
-    color: var(--cor-destaque);
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    margin-bottom: 12px;
-    color: var(--cor-principal);
-}
-
-.card p {
-    color: #555;
-    line-height: 1.5;
-}
-
-/* ==========================================
-   SEÇÃO 3: TECNOLOGIA (EXPANSÍVEIS)
-   ========================================== */
-.tech-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.tech-item {
-    background-color: var(--cor-card);
-    margin-bottom: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.tech-visivel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    border-left: 5px solid var(--cor-destaque);
-}
-
-.tech-visivel h3 {
-    font-size: 1.2rem;
-    color: var(--cor-texto);
-}
-
-.tech-visivel i {
-    color: var(--cor-destaque);
-}
-
-.tech-visivel .seta {
-    transition: 0.3s;
-}
-
-.tech-oculto {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease-out;
-    background-color: #fafafa;
-}
-
-.tech-oculto p {
-    padding: 20px 0;
-    line-height: 1.6;
-    color: #444;
-}
-
-/* Classe dinâmica injetada por JS */
-.tech-item.ativo .seta {
-    transform: rotate(180deg);
-}
-
-.tech-item.ativo .tech-oculto {
-    max-height: 200px; /* Expande suavemente */
-}
-
-/* ==========================================
-   SEÇÃO 4: IMPACTOS POSITIVOS
-   ========================================== */
-.impactos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-}
-
-.impacto-box {
-    background-color: #e8f5e9;
-    padding: 25px;
-    border-radius: 10px;
-    border-left: 4px solid var(--cor-principal);
-}
-
-.impacto-box h4 {
-    color: var(--cor-principal);
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-.impacto-box p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* ==========================================
-   FUNCIONALIDADE: QUIZ SCRIPTADO
-   ========================================== */
-.quiz-secao {
-    background-color: #fff;
-    padding: 40px 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    margin: 60px 0;
-}
-
-.quiz-card {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.quiz-card h3 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: var(--cor-principal);
-}
-
-.alternativas-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.btn-opcao {
-    background-color: var(--cor-fundo);
-    border: 2px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: left;
+    border: 2px solid var(--cor-principal);
     font-size: 1rem;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-opcao:hover {
-    background-color: #e8f5e9;
-    border-color: var(--cor-secundaria);
-}
-
-.oculto {
-    display: none !important;
-}
-
-.btn-reiniciar {
-    display: block;
-    margin: 20px auto 0 auto;
-    padding: 12px 25px;
-    background-color: var(--cor-principal);
-    color: #fff;
-    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+}
+
+.btn:hover {
+    background: var(--cor-principal);
+    color: var(--cor-fundo);
+    box-shadow: 0 0 20px var(--cor-principal);
 }
 
 /* ==========================================
-   SEÇÃO 5: CONCLUSÃO
+   CARDS INTERATIVOS EXPANSÍVEIS (GRID)
    ========================================== */
-.conclusao-banner {
-    background: linear-gradient(rgba(27, 94, 32, 0.9), rgba(46, 125, 50, 0.8)), url('https://picsum.photos/1200/400?nature') no-repeat center center/cover;
-    padding: 60px 40px;
-    border-radius: 15px;
-    color: var(--cor-texto-claro);
-    text-align: center;
-    margin-bottom: 60px;
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.conclusao-banner h2 {
-    font-size: 2rem;
+.card, .card-tech {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid rgba(0, 242, 254, 0.1);
+    border-radius: 8px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .card-tech:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-principal);
+    box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
+}
+
+.card h3, .card-tech h3 {
+    color: var(--cor-texto-destaque);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+/* Conteúdos Ocultos para Expansão */
+.card-more-content, .expanded-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-top: 0;
+}
+
+/* Classe utilitária ativada via JavaScript para expandir */
+.expanded-content.open, .card-more-content.open {
+    max-height: 200px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--cor-principal);
+    transition: max-height 0.5s ease-in-out;
+}
+
+.btn-card-more, .btn-expand {
+    margin-top: 15px;
+    background: transparent;
+    border: 1px solid var(--cor-principal);
+    color: var(--cor-principal);
+    padding: 6px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-card-more:hover, .btn-expand:hover {
+    background: rgba(0, 242, 254, 0.2);
+}
+
+/* ==========================================
+   SEÇÃO IMPACTOS
+   ========================================== */
+.impactos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.impacto-item {
+    flex: 1 1 220px;
+    background: linear-gradient(135deg, #112240, #0a192f);
+    padding: 20px;
+    border-left: 4px solid var(--cor-secundaria);
+    border-radius: 0 8px 8px 0;
+}
+
+.impacto-item h4 {
+    color: var(--cor-principal);
+    margin-bottom: 10px;
+}
+
+/* ==========================================
+   CALCULADORA ECOLÓGICA
+   ========================================== */
+.eco-calc-section {
+    display: flex;
+    justify-content: center;
+}
+
+.calc-wrapper {
+    background-color: var(--cor-fundo-card);
+    border: 2px solid var(--cor-principal);
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.1);
+}
+
+.form-group {
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 10px;
+    color: var(--cor-texto-destaque);
+}
+
+.form-group input {
+    padding: 12px;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-texto);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--cor-principal);
+    outline: none;
+}
+
+.btn-full {
+    width: 100%;
+    text-align: center;
+}
+
+.resultado-box {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: rgba(0, 242, 254, 0.1);
+    border-radius: 6px;
+    border: 1px solid var(--cor-principal);
+    animation: fadeIn 0.5s ease;
+}
+
+.resultado-box h3 {
+    color: var(--cor-principal);
+    margin-bottom: 8px;
+}
+
+.hidden { display: none; }
+
+/* ==========================================
+   CONCLUSÃO E FOOTER
+   ========================================== */
+.conclusao {
+    text-align: center;
+}
+
+.conclusao-box {
+    background: linear-gradient(45deg, rgba(17, 34, 64, 0.8), rgba(7, 80, 120, 0.3));
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--cor-principal);
+}
+
+.conclusao-box h2 {
+    color: var(--cor-texto-destaque);
     margin-bottom: 15px;
 }
 
-.conclusao-banner p {
+.conclusao-box p {
     font-style: italic;
     font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
 }
 
-/* ==========================================
-   RODAPÉ (FOOTER)
-   ========================================== */
-footer {
-    background-color: #111;
-    color: #aaa;
-    padding: 30px 0;
+.footer {
     text-align: center;
+    padding: 30px;
+    background-color: #020c1b;
+    border-top: 1px solid var(--borda-glow);
+    font-size: 0.9rem;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.redes-sociais i {
-    font-size: 1.4rem;
-    color: #fff;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.redes-sociais i:hover {
-    color: var(--cor-secundaria);
+/* Animação Simples */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================
-   RESPONSIVIDADE (MOBILE / TABLET)
+   REGRAS DE RESPONSIVIDADE (MOBILE)
    ========================================== */
 @media (max-width: 768px) {
-    .menu-desktop {
-        display: none;
+    .menu-toggle {
+        display: flex; /* Exibe o botão hambúrguer no mobile */
     }
 
-    .btn-menu-mob {
-        display: block;
+    .navbar {
+        display: none; /* Esconde a lista original */
+        flex-direction: column;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-fundo-card);
+        border-bottom: 2px solid var(--cor-principal);
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     }
 
-    .banner-conteudo h1 {
+    /* Classe JavaScript para abrir menu no mobile */
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        margin: 15px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-content h1 {
         font-size: 2.3rem;
     }
 
-    .banner-conteudo p {
-        font-size: 1rem;
+    /* Animação do botão hambúrguer ativo */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
     }
-
-    .intro-grid {
-        flex-direction: column;
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
     }
-
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 }
